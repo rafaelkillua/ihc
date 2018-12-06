@@ -96,6 +96,10 @@ const createStore = () => {
                 if (--state.carrinho[itemPos].quantidadeCarrinho === 0) {
                     state.carrinho.splice(itemPos, 1);
                 }
+            },
+
+            limparCarrinho: state => {
+                state.carrinho = [];
             }
         },
 

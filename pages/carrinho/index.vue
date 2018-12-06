@@ -90,7 +90,13 @@
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer/>
-                            <v-btn flat nuxt to="checkout" color="orange">
+                            <v-btn
+                                flat
+                                nuxt
+                                to="checkout"
+                                color="orange"
+                                :disabled="precoTotal === 0"
+                            >
                                 <v-icon>check</v-icon>Checkout
                             </v-btn>
                         </v-card-actions>
@@ -110,7 +116,8 @@ export default {
 
         precoTotal() {
             return this.$store.getters.getCarrinho.reduce(
-                (anterior, item) => anterior + item.preco,
+                (anterior, item) =>
+                    anterior + item.preco * item.quantidadeCarrinho,
                 0
             );
         }
