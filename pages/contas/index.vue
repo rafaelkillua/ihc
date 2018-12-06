@@ -2,7 +2,7 @@
     <v-layout justify-center row wrap>
         <v-flex xs12 md6>
             <v-card>
-                <v-card-title class="headline">Contas a pagar</v-card-title>
+                <v-card-title class="headline">Contas a Receber</v-card-title>
 
                 <v-card-text>
                     <v-list-tile avatar v-for="conta in contasReceber" :key="'receber_' + conta.id">
@@ -14,7 +14,7 @@
                             <v-list-tile-title>{{conta.titulo}}</v-list-tile-title>
                         </v-list-tile-content>
 
-                        <v-list-tile-action>RS {{conta.valor}}</v-list-tile-action>
+                        <v-list-tile-action class="green--text">RS {{conta.valor}}</v-list-tile-action>
                     </v-list-tile>
                 </v-card-text>
             </v-card>
@@ -22,7 +22,7 @@
 
         <v-flex xs12 md6>
             <v-card>
-                <v-card-title class="headline">Contas a pagar</v-card-title>
+                <v-card-title class="headline">Contas a Pagar</v-card-title>
 
                 <v-card-text>
                     <v-list-tile avatar v-for="conta in contasPagar" :key="'pagar_' + conta.id">
@@ -34,7 +34,7 @@
                             <v-list-tile-title>{{conta.titulo}}</v-list-tile-title>
                         </v-list-tile-content>
 
-                        <v-list-tile-action>RS {{conta.valor}}</v-list-tile-action>
+                        <v-list-tile-action class="red--text">RS {{conta.valor}}</v-list-tile-action>
                     </v-list-tile>
                 </v-card-text>
             </v-card>
