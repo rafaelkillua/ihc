@@ -2,6 +2,9 @@
     <v-footer app color="primary">
         <v-container fill-height>
             <v-layout align-center justify-start>
+                <v-btn flat nuxt to="/sobre" class="white--text">
+                    <strong>SOBRE</strong>
+                </v-btn>
                 <v-btn flat nuxt to="/sac" class="white--text">
                     <strong>SAC</strong>
                 </v-btn>

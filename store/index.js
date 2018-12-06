@@ -16,7 +16,7 @@ const createStore = () => {
                     nome: "Headset Razer Kraken",
                     imagem:
                         "https://images8.kabum.com.br/produtos/fotos/76488/76488_1526584582_g.jpg",
-                    descricao: "Um bonito headset, né",
+                    descricao: "Um bonito headset, né?",
                     preco: 199.99,
                     quantidadeCarrinho: 1
                 },
@@ -25,8 +25,17 @@ const createStore = () => {
                     nome: "Earphones in-ear JBL",
                     imagem:
                         "https://images-na.ssl-images-amazon.com/images/I/51Rz5q4nUNL._SY450_.jpg",
-                    descricao: "Um bonito fonezinho, né",
+                    descricao: "Um bonito fonezinho, né?",
                     preco: 99.99,
+                    quantidadeCarrinho: 1
+                },
+                {
+                    id: "3",
+                    nome: "Pen Drive 3.0 32gb Kingston",
+                    imagem:
+                        "https://www.ibyte.com.br/media/catalog/product/cache/1/image/800x/9df78eab33525d08d6e5fb8d27136e95/3/4/34107-1-pen-drive-kingston-datatraveler-usb-3-1-32gb-dt50-32gb-vermelho.jpg",
+                    descricao: "Um bonito pen drive, né? E rápido também!",
+                    preco: 49.99,
                     quantidadeCarrinho: 1
                 }
             ],

@@ -1,23 +1,34 @@
 <template>
     <v-container grid-list-md>
         <v-layout row wrap>
+            <v-flex xs12>
+                <v-card>
+                    <v-card-text class="pa-5">
+                        <strong class="display-3">Bem vindo ao E-letronic!</strong>
+                        <br>
+                        <span class="display-1">Uma loja online de artigos eletrônicos!</span>
+                        <br>
+                        <span class="subtitle">Finge que tem um banner bem massa de fundo...</span>
+                    </v-card-text>
+                </v-card>
+            </v-flex>
             <v-flex xs12 sm4>
                 <v-card>
-                    <v-card-title class="headline">
+                    <v-card-title class="title">
                         <v-icon left>search</v-icon>Pesquisar
                     </v-card-title>
                     <v-card-text>
                         <v-text-field v-model="pesquisa"></v-text-field>
                     </v-card-text>
 
-                    <v-card-title class="headline">
+                    <v-card-title class="title">
                         <v-icon left>category</v-icon>Categorias
                     </v-card-title>
                     <v-card-text>
                         <v-select :items="categorias" v-model="categoria"></v-select>
                     </v-card-text>
 
-                    <v-card-title class="headline">
+                    <v-card-title class="title">
                         <v-icon left>filter_list</v-icon>Filtros
                     </v-card-title>
                     <v-card-text>
@@ -27,7 +38,7 @@
 
                         <v-layout row wrap>
                             <v-flex xs12>
-                                <v-range-slider v-model="preco" :max="1000" :min="0" :step="1"></v-range-slider>
+                                <v-range-slider v-model="preco" :max="1000" :min="0" :step="5"></v-range-slider>
                             </v-flex>
 
                             <v-flex shrink xs6>

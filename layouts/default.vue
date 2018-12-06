@@ -3,7 +3,7 @@
         <v-container fluid fill-height text-xs-center grid-list-md>
             <v-layout align-center justify-center wrap>
                 <v-flex xs12>
-                    <v-progress-circular indeterminate color="#673AB7"></v-progress-circular>
+                    <v-progress-circular indeterminate color="#f79813"></v-progress-circular>
                 </v-flex>
                 <v-flex xs12>
                     <h3>Aguenta um pouco que vai...</h3>
@@ -40,7 +40,7 @@ export default {
     components: { TheFooter, TheDrawer, TheToolbar },
 
     data: () => ({
-        title: "E-LETRONIC E-COMMERCE",
+        title: "E-LETRONIC",
         drawer: false,
         snackbarShow: false
     }),
@@ -73,7 +73,11 @@ export default {
 
             if (this.user) {
                 rotas.push(
-                    { nome: "Protegido", icone: "lock", caminho: "/protegido" },
+                    {
+                        nome: "Contas",
+                        icone: "description",
+                        caminho: "/contas"
+                    },
                     { nome: "Perfil", icone: "person", caminho: "/perfil" },
                     {
                         nome: "Logout",
@@ -98,7 +102,6 @@ export default {
                 icone: "shopping_cart",
                 caminho: "/carrinho"
             });
-            rotas.push({ nome: "Sobre", icone: "info", caminho: "/sobre" });
             return rotas;
         }
     },

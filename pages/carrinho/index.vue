@@ -9,7 +9,7 @@
                         <div v-for="item in carrinho" :key="item.id">
                             <v-list-tile avatar>
                                 <v-list-tile-avatar>
-                                    <img :src="item.imagem">
+                                    <v-img :src="item.imagem"/>
                                 </v-list-tile-avatar>
 
                                 <v-list-tile-content>
