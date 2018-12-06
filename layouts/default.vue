@@ -71,6 +71,14 @@ export default {
                 drawerOnly: true
             });
 
+            if (this.user.email === "rafael_killua@msn.com") {
+                rotas.push({
+                    nome: "Admin",
+                    icone: "person",
+                    caminho: "/cadastroColabProd"
+                });
+            }
+
             if (this.user) {
                 rotas.push(
                     {
