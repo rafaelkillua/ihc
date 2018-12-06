@@ -1,6 +1,6 @@
 <template>
     <v-container grid-list-md>
-        <v-layout align-center justify-center row wrap="">
+        <v-layout align-center justify-center row wrap>
             <v-flex xs12 sm8 md4>
                 <v-card class="v-layout-item v-size-50 v-small-size-100">
                     <v-card-title primary-title>
@@ -17,7 +17,8 @@
 export default {
     data() {
         return {
-            welcome: "Este é o sobre! Em breve teremos mais dados!"
+            welcome:
+                "Protótipo feito para a disciplina de Interface Homem-Máquina, FAP 2018.2."
         };
     }
 };

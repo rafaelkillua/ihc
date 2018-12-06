@@ -35,10 +35,9 @@
 import TheFooter from "~/components/TheFooter";
 import TheDrawer from "~/components/TheDrawer";
 import TheToolbar from "~/components/TheToolbar";
-import TheSnackbar from "~/components/TheSnackbar";
 
 export default {
-    components: { TheFooter, TheDrawer, TheToolbar, TheSnackbar },
+    components: { TheFooter, TheDrawer, TheToolbar },
 
     data: () => ({
         title: "E-LETRONIC E-COMMERCE",

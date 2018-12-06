@@ -76,9 +76,8 @@ export default {
                 emailRules: [
                     v => !!v || "E-mail é obrigatório",
                     v =>
-                        /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
-                            v
-                        ) || "E-mail tem que ser válido"
+                        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+                        "E-mail tem que ser válido"
                 ],
                 senhaRules: [v => !!v || "Senha é obrigatória"]
             },

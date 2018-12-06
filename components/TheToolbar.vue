@@ -10,7 +10,10 @@
                 active-class="default-class"
                 large
                 class="white--text"
-            >{{ title }}</v-btn>
+            >
+                <v-icon left dark>headset</v-icon>
+                {{ title }}
+            </v-btn>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
