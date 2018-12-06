@@ -9,7 +9,36 @@ const createStore = () => {
             user: null,
             progressoUpload: 0,
             notificacoes: [],
-            mostrarNotificacao: false
+            mostrarNotificacao: false,
+            itens: [
+                {
+                    id: "1",
+                    nome: "Headset Razer Kraken",
+                    imagem:
+                        "https://images8.kabum.com.br/produtos/fotos/76488/76488_1526584582_g.jpg",
+                    descricao: "Um bonito headset, né",
+                    preco: 199.99
+                },
+                {
+                    id: "2",
+                    nome: "Earphones in-ear JBL",
+                    imagem:
+                        "https://images-na.ssl-images-amazon.com/images/I/51Rz5q4nUNL._SY450_.jpg",
+                    descricao: "Um bonito fonezinho, né",
+                    preco: 99.99
+                }
+            ],
+            carrinho: [],
+            categorias: [
+                "Fone de Ouvido",
+                "Pen Drive",
+                "WebCam",
+                "Teclado",
+                "Mouse",
+                "Acessórios",
+                "Caixas de Som",
+                "Joystick"
+            ]
         }),
 
         mutations: {
@@ -59,6 +88,14 @@ const createStore = () => {
 
             getCarregando(state) {
                 return state.carregando;
+            },
+
+            getAllItens(state) {
+                return state.itens;
+            },
+
+            getCategorias(state) {
+                return ["Todas"].concat(state.categorias.sort());
             }
         },
 

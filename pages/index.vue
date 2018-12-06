@@ -1,38 +1,82 @@
 <template>
     <v-container grid-list-md>
         <v-layout row wrap>
-            <v-flex xs12 sm4>
+            <v-flex xs12 md4>
                 <v-card>
-                    <v-card-text>Teste</v-card-text>
+                    <v-card-title class="headline">
+                        <v-icon left>search</v-icon>Pesquisar
+                    </v-card-title>
+                    <v-card-text>
+                        <v-text-field v-model="pesquisa"></v-text-field>
+                    </v-card-text>
+
+                    <v-card-title class="headline">
+                        <v-icon left>category</v-icon>Categorias
+                    </v-card-title>
+                    <v-card-text>
+                        <v-select :items="categorias" v-model="categoria"></v-select>
+                    </v-card-text>
+
+                    <v-card-title class="headline">
+                        <v-icon left>filter_list</v-icon>Filtros
+                    </v-card-title>
+                    <v-card-text>
+                        <strong>
+                            <v-icon left>attach_money</v-icon>Preço:
+                        </strong>
+
+                        <v-layout row wrap>
+                            <v-flex xs12>
+                                <v-range-slider v-model="preco" :max="1000" :min="0" :step="1"></v-range-slider>
+                            </v-flex>
+
+                            <v-flex shrink xs6>
+                                <v-text-field
+                                    v-model="preco[0]"
+                                    class="mt-0"
+                                    hide-details
+                                    single-line
+                                    prefix="R$"
+                                    type="number"
+                                ></v-text-field>
+                            </v-flex>
+
+                            <v-flex shrink xs6>
+                                <v-text-field
+                                    v-model="preco[1]"
+                                    class="mt-0"
+                                    hide-details
+                                    single-line
+                                    prefix="R$"
+                                    type="number"
+                                ></v-text-field>
+                            </v-flex>
+                        </v-layout>
+                    </v-card-text>
                 </v-card>
             </v-flex>
-            <v-flex xs12 sm8>
+            <v-flex xs12 md8>
                 <v-card>
                     <v-card-text>
-                        <v-container grid-list-sm>
+                        <v-container>
                             <v-layout row wrap>
                                 <v-flex xs12 sm6 v-for="item in itens" :key="item.id">
                                     <v-card>
                                         <v-img
                                             class="white--text"
                                             height="200px"
+                                            contain
                                             :src="item.imagem"
-                                        >
-                                            <v-container fill-height fluid>
-                                                <v-layout fill-height>
-                                                    <v-flex xs12 align-end flexbox>
-                                                        <span class="headline">{{item.nome}}</span>
-                                                    </v-flex>
-                                                </v-layout>
-                                            </v-container>
-                                        </v-img>
-                                        <v-card-title>
+                                        />
+                                        <v-card-text>
                                             <div>
-                                                <span>R$ {{item.preco}}</span>
+                                                <span class="headline">{{item.nome}}</span>
+                                                <br>
+                                                <strong class="title">R$ {{item.preco}}</strong>
                                                 <br>
                                                 <span>{{item.descricao}}</span>
                                             </div>
-                                        </v-card-title>
+                                        </v-card-text>
                                         <v-card-actions>
                                             <v-btn
                                                 flat
@@ -40,11 +84,10 @@
                                                 :to="'item/' + item.id"
                                                 color="orange"
                                             >Visualizar</v-btn>
-                                            <v-btn
-                                                flat
-                                                @click="addCarrinho(item)"
-                                                color="orange"
-                                            >Adicionar ao Carrinho</v-btn>
+                                            <v-spacer/>
+                                            <v-btn flat @click="addCarrinho(item)" color="orange">
+                                                <v-icon>add</v-icon>Carrinho
+                                            </v-btn>
                                         </v-card-actions>
                                     </v-card>
                                 </v-flex>
@@ -61,16 +104,22 @@
 export default {
     data() {
         return {
-            itens: [
-                {
-                    id: "1",
-                    nome: "Headset",
-                    imagem: "https://cdn.vuetifyjs.com/images/cards/docks.jpg",
-                    descricao: "ue",
-                    preco: 99.99
-                }
-            ]
+            pesquisa: "",
+            categoria: "Todas",
+            preco: [0, 1000]
         };
+    },
+
+    computed: {
+        itens() {
+            return this.$store.getters.getAllItens.filter(item =>
+                item.nome.toLowerCase().includes(this.pesquisa.toLowerCase())
+            );
+        },
+
+        categorias() {
+            return this.$store.getters.getCategorias;
+        }
     }
 };
 </script>
