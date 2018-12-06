@@ -1,0 +1,9 @@
+service firebase.storage {
+  match /b/{bucket}/o {
+      match /avatar/{avatarId} {
+        allow read: if true;
+        allow write: if request.auth.uid == avatarId
+                     && request.resource.contentType.matches('image/.*');
+      }
+    }
+}
