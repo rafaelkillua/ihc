@@ -1,7 +1,7 @@
 <template>
     <v-container grid-list-md>
         <v-layout row wrap>
-            <v-flex xs12 md4>
+            <v-flex xs12 sm4>
                 <v-card>
                     <v-card-title class="headline">
                         <v-icon left>search</v-icon>Pesquisar
@@ -55,7 +55,7 @@
                     </v-card-text>
                 </v-card>
             </v-flex>
-            <v-flex xs12 md8>
+            <v-flex xs12 sm8>
                 <v-card>
                     <v-card-text>
                         <v-container>
@@ -85,7 +85,11 @@
                                                 color="orange"
                                             >Visualizar</v-btn>
                                             <v-spacer/>
-                                            <v-btn flat @click="addCarrinho(item)" color="orange">
+                                            <v-btn
+                                                flat
+                                                @click="adicionarAoCarrinho(item.id)"
+                                                color="orange"
+                                            >
                                                 <v-icon>add</v-icon>Carrinho
                                             </v-btn>
                                         </v-card-actions>
@@ -119,6 +123,12 @@ export default {
 
         categorias() {
             return this.$store.getters.getCategorias;
+        }
+    },
+
+    methods: {
+        adicionarAoCarrinho(itemID) {
+            this.$store.dispatch("adicionarAoCarrinho", itemID);
         }
     }
 };

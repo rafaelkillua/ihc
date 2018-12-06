@@ -17,7 +17,8 @@ const createStore = () => {
                     imagem:
                         "https://images8.kabum.com.br/produtos/fotos/76488/76488_1526584582_g.jpg",
                     descricao: "Um bonito headset, né",
-                    preco: 199.99
+                    preco: 199.99,
+                    quantidadeCarrinho: 1
                 },
                 {
                     id: "2",
@@ -25,7 +26,8 @@ const createStore = () => {
                     imagem:
                         "https://images-na.ssl-images-amazon.com/images/I/51Rz5q4nUNL._SY450_.jpg",
                     descricao: "Um bonito fonezinho, né",
-                    preco: 99.99
+                    preco: 99.99,
+                    quantidadeCarrinho: 1
                 }
             ],
             carrinho: [],
@@ -66,6 +68,34 @@ const createStore = () => {
 
             setCarregando: state => {
                 state.carregando = false;
+            },
+
+            addCarrinho: (state, itemID) => {
+                const item = state.itens.find(item => item.id === itemID);
+                if (!state.carrinho.includes(item)) state.carrinho.push(item);
+            },
+
+            removeCarrinho: (state, itemID) => {
+                state.carrinho.splice(
+                    state.carrinho.findIndex(item => item.id === itemID),
+                    1
+                );
+            },
+
+            aumentarCarrinho: (state, itemID) => {
+                const itemPos = state.carrinho.findIndex(
+                    item => item.id === itemID
+                );
+                state.carrinho[itemPos].quantidadeCarrinho++;
+            },
+
+            diminuirCarrinho: (state, itemID) => {
+                const itemPos = state.carrinho.findIndex(
+                    item => item.id === itemID
+                );
+                if (--state.carrinho[itemPos].quantidadeCarrinho === 0) {
+                    state.carrinho.splice(itemPos, 1);
+                }
             }
         },
 
@@ -96,6 +126,10 @@ const createStore = () => {
 
             getCategorias(state) {
                 return ["Todas"].concat(state.categorias.sort());
+            },
+
+            getCarrinho(state) {
+                return state.carrinho;
             }
         },
 
@@ -253,6 +287,30 @@ const createStore = () => {
 
             recuperarEmail(ctx, email) {
                 return auth.sendPasswordResetEmail(email);
+            },
+
+            adicionarAoCarrinho(ctx, itemID) {
+                ctx.commit("addCarrinho", itemID);
+                ctx.dispatch("notificacao", {
+                    tipo: "success",
+                    mensagem: "Item adicionado ao carrinho!"
+                });
+            },
+
+            removerDoCarrinho(ctx, itemID) {
+                ctx.commit("removeCarrinho", itemID);
+                ctx.dispatch("notificacao", {
+                    tipo: "success",
+                    mensagem: "Item removido do carrinho!"
+                });
+            },
+
+            aumentarQuantidade(ctx, itemID) {
+                ctx.commit("aumentarCarrinho", itemID);
+            },
+
+            diminuirQuantidade(ctx, itemID) {
+                ctx.commit("diminuirCarrinho", itemID);
             }
         }
     });

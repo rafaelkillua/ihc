@@ -93,6 +93,11 @@ export default {
                 );
             }
 
+            rotas.push({
+                nome: "Carrinho",
+                icone: "shopping_cart",
+                caminho: "/carrinho"
+            });
             rotas.push({ nome: "Sobre", icone: "info", caminho: "/sobre" });
             return rotas;
         }

@@ -27,7 +27,7 @@
                                             <v-spacer/>
                                             <v-btn
                                                 flat
-                                                @click="addCarrinho(item)"
+                                                @click="adicionarAoCarrinho(item.id)"
                                                 color="orange"
                                             >Adicionar ao Carrinho</v-btn>
                                         </v-card-actions>
@@ -49,6 +49,12 @@ export default {
             return this.$store.getters.getAllItens.find(
                 item => item.id === this.$route.params.itemID
             );
+        }
+    },
+
+    methods: {
+        adicionarAoCarrinho(itemID) {
+            this.$store.dispatch("adicionarAoCarrinho", itemID);
         }
     }
 };
