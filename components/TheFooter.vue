@@ -2,18 +2,18 @@
     <v-footer app color="primary">
         <v-container fill-height>
             <v-layout align-center justify-start>
-                <v-btn flat nuxt to="/sobre" class="white--text">
+                <v-btn flat nuxt to="/sobre" class="white--text mb-3">
                     <strong>SOBRE</strong>
                 </v-btn>
-                <v-btn flat nuxt to="/sac" class="white--text">
+                <v-btn flat nuxt to="/sac" class="white--text mb-3">
                     <strong>SAC</strong>
                 </v-btn>
-                <v-btn flat nuxt to="/ajuda" class="white--text">
+                <v-btn flat nuxt to="/ajuda" class="white--text mb-3">
                     <strong>AJUDA</strong>
                 </v-btn>
             </v-layout>
             <v-layout align-center justify-end>
-                <span class="white--text">
+                <span class="white--text mb-3">
                     &copy;2018 -
                     <a
                         href="https://rafaelst.com.br"
