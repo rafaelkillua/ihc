@@ -12,8 +12,19 @@
         </v-container>
     </v-content>
     <v-app v-else>
-        <TheDrawer :user="user" :rotas="rotas" :drawer="drawer" @toggleDrawer="drawer = $event"/>
-        <TheToolbar :toggleDrawer="toggleDrawer" :title="title" :rotas="rotas"/>
+        <TheDrawer
+            :user="user"
+            :rotas="rotas"
+            :drawer="drawer"
+            @toggleDrawer="drawer = $event"
+            :tamanhoCarrinho="tamanhoCarrinho"
+        />
+        <TheToolbar
+            :toggleDrawer="toggleDrawer"
+            :title="title"
+            :rotas="rotas"
+            :tamanhoCarrinho="tamanhoCarrinho"
+        />
         <v-content>
             <v-container fluid fill-height text-xs-center>
                 <nuxt/>
@@ -62,6 +73,10 @@ export default {
             return this.$store.getters.getCarregando;
         },
 
+        tamanhoCarrinho() {
+            return this.$store.getters.getCarrinho.length;
+        },
+
         rotas() {
             let rotas = [];
             rotas.push({
@@ -70,7 +85,6 @@ export default {
                 caminho: "/",
                 drawerOnly: true
             });
-
 
             if (this.user) {
                 if (this.user.email === "rafael_killua@msn.com") {

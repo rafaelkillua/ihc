@@ -49,7 +49,7 @@
                                 </v-list-tile-action>
                             </v-list-tile>
 
-                            <v-divider v-if="item.id < carrinho.length" inset="true"></v-divider>
+                            <v-divider v-if="item.id < carrinho.length" inset></v-divider>
                         </div>
                     </v-list>
                 </v-flex>

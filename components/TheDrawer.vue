@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer app v-model="drawerChild" absolute temporary>
+    <v-navigation-drawer app v-model="drawerChild" temporary>
         <v-list class="pa-1">
             <v-list-tile avatar @click="$router.push(user ? '/perfil' : '/login')">
                 <v-list-tile-avatar>
@@ -21,7 +21,11 @@
                 class="black--text"
             >
                 <v-list-tile-action>
-                    <v-icon>{{rota.icone}}</v-icon>
+                    <v-badge right v-if="rota.icone === 'shopping_cart'" color="info">
+                        <span slot="badge" v-if="rota.icone === 'shopping_cart'">{{tamanhoCarrinho}}</span>
+                        <v-icon left>{{rota.icone}}</v-icon>
+                    </v-badge>
+                    <v-icon left v-else>{{rota.icone}}</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
                     <v-list-tile-title>{{ rota.nome }}</v-list-tile-title>
@@ -33,7 +37,7 @@
 
 <script>
 export default {
-    props: ["user", "rotas", "drawer"],
+    props: ["user", "rotas", "drawer", "tamanhoCarrinho"],
 
     data() {
         return {

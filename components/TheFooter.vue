@@ -2,13 +2,13 @@
     <v-footer app color="primary">
         <v-container fill-height>
             <v-layout align-center justify-start>
-                <v-btn flat nuxt to="/sobre" class="white--text mb-3">
+                <v-btn flat nuxt small block to="/sobre" class="white--text mb-3">
                     <strong>SOBRE</strong>
                 </v-btn>
-                <v-btn flat nuxt to="/sac" class="white--text mb-3">
+                <v-btn flat nuxt small block to="/sac" class="white--text mb-3">
                     <strong>SAC</strong>
                 </v-btn>
-                <v-btn flat nuxt to="/ajuda" class="white--text mb-3">
+                <v-btn flat nuxt small block to="/ajuda" class="white--text mb-3">
                     <strong>AJUDA</strong>
                 </v-btn>
             </v-layout>
@@ -20,7 +20,7 @@
                         target="_blank"
                         class="white--text"
                     >
-                        <strong>Rafael Sampaio Tavares</strong>
+                        <strong>Rafael</strong>
                     </a>
                 </span>
             </v-layout>

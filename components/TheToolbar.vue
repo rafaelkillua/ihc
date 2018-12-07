@@ -9,6 +9,7 @@
                 flat
                 active-class="default-class"
                 large
+                block
                 class="white--text"
             >
                 <v-icon left dark>headset</v-icon>
@@ -26,7 +27,11 @@
                 @click="rota.dispatch ? $store.dispatch(rota.dispatch) : null"
                 class="white--text"
             >
-                <v-icon left>{{rota.icone}}</v-icon>
+                <v-badge left v-if="rota.icone === 'shopping_cart'" color="info">
+                    <span slot="badge" v-if="rota.icone === 'shopping_cart'">{{tamanhoCarrinho}}</span>
+                    <v-icon left>{{rota.icone}}</v-icon>
+                </v-badge>
+                <v-icon left v-else>{{rota.icone}}</v-icon>
                 {{rota.nome}}
             </v-btn>
         </v-toolbar-items>
@@ -35,7 +40,7 @@
 
 <script>
 export default {
-    props: ["title", "rotas", "toggleDrawer"],
+    props: ["title", "rotas", "toggleDrawer", "tamanhoCarrinho"],
 
     computed: {
         rotasToolbar() {
